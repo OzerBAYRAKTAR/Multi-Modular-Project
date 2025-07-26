@@ -1,27 +1,29 @@
 sealed class Build {
     open val isMinifyEnabled = false
-    open val enableUnitTestCovarege = false
+    open val enableUnitTestCoverage = false
     open val isDebuggable = false
-    open val applicationSuffix = ""
+    open val applicationIdSuffix = ""
     open val versionNameSuffix = ""
 
     object Debug : Build() {
-        override val isDebuggable = true
-        override val applicationSuffix = ".debug"
         override val versionNameSuffix = "-DEBUG"
+        override val applicationIdSuffix = ".debug"
         override val isMinifyEnabled = false
-        override val enableUnitTestCovarege = false
+        override val isDebuggable = true
+        override val enableUnitTestCoverage = true
     }
-    object ReleaseExternalQA : Build() {
-        override val isDebuggable = false
-        override val applicationSuffix = ".releaseExternalQA"
+
+    object ReleaseExternalQa : Build() {
         override val versionNameSuffix = "-QA"
+        override val applicationIdSuffix = ".releaseExternalQa"
         override val isMinifyEnabled = false
-        override val enableUnitTestCovarege = true
-    }
-    object Release : Build() {
         override val isDebuggable = false
+        override val enableUnitTestCoverage = true
+    }
+
+    object Release : Build() {
         override val isMinifyEnabled = true
-        override val enableUnitTestCovarege = false
+        override val isDebuggable = false
+        override val enableUnitTestCoverage = false
     }
 }
