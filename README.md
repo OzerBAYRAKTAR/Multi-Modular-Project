@@ -1,0 +1,2 @@
+--> Multi moduler project has been started-
+--> build variants added
